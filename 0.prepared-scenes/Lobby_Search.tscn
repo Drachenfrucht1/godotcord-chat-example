@@ -1,0 +1,25 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="back" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_left = 150.0
+margin_top = 50.0
+margin_right = 611.0
+margin_bottom = 449.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+__meta__ = {
+"_edit_use_anchors_": false
+}

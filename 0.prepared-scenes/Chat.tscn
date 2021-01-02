@@ -1,0 +1,43 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="back" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 200.0
+margin_top = 550.0
+margin_right = 770.0
+margin_bottom = 590.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
+margin_right = 523.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="send" type="Button" parent="HBoxContainer"]
+margin_left = 527.0
+margin_right = 570.0
+margin_bottom = 40.0
+text = "Send"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 200.0
+margin_top = 1.0
+margin_right = 764.0
+margin_bottom = 545.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
