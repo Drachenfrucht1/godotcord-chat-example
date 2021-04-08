@@ -28,29 +28,39 @@ func _activity_join(activity_secret):
 	if active:
 		return;
 	var peer = NetworkedMultiplayerGodotcord.new();
-	peer.join_server_activity(activity_secret);
 	_init_peer(peer);
+	peer.join_server_activity(activity_secret);
 	
 func _init_peer(peer):
 	get_tree().network_peer = peer;
-	peer.connect("network_peer_connected", self, "_peer_connected");
-	peer.connect("created_server", self, "_update_activity");
-	peer.connect("server_conected", self, "_update_activity");
+	peer.connect("connection_succeeded", self, "_connected");
+	peer.connect("peer_connected", self, "_peer_connected");
+	peer.connect("created_lobby", self, "_connected");
 	#Change to Chat scene
+	#TODO
+	SceneSwitcher.change_scene_instant("res://Chat.tscn");
 	
 func _update_activity():
 	var activity = GodotcordActivity.new();
 	activity.state = "Chatting";
-	activity.joinSecret = get_tree().network_peer.get_lobby_activity_secret();
+	activity.join_secret = get_tree().network_peer.get_lobby_activity_secret();
 	activity.start = OS.get_unix_time();
 	
 	GodotcordActivityManager.set_activity(activity);
 	
+func _connected():
+	var user = GodotcordUserManager.get_current_user();
+	_add_user(user);
+	_update_activity();
+	 
+	
 func _peer_connected(id):
 	var user_id = get_tree().network_peer.get_user_id_by_peer(id);
-	GodotcordUserManager.get_user(user_id, self, "_user_return");
+	GodotcordUserManager.get_user(user_id)
+	var user = yield(GodotcordUserManager, "get_user_callback");
+	_add_user(user);
 	
-func _user_return(user):
+func _add_user(user):
 	var peer_id = get_tree().network_peer.get_peer_id_by_user(user["id"]);
 	users[peer_id] = user;
 	

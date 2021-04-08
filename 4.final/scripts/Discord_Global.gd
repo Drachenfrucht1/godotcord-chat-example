@@ -3,7 +3,7 @@ extends Node
 var CLIENT_ID;
 
 func _ready():
-	Godotcord.init(CLIENT_ID, 1);
+	Godotcord.init(CLIENT_ID, Godotcord.CreateFlags_DEFAULT);
 	
 	var activity = GodotcordActivity.new();
 	activity.state = ""

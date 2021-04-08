@@ -43,13 +43,15 @@ __meta__ = {
 [node name="lobby_id" type="LineEdit" parent="VBoxContainer/join_dialog"]
 margin_right = 183.0
 margin_bottom = 24.0
+placeholder_text = "lobby id"
 
 [node name="lobby_secret" type="LineEdit" parent="VBoxContainer/join_dialog"]
 margin_top = 28.0
 margin_right = 183.0
 margin_bottom = 52.0
+placeholder_text = "lobby secret"
 
-[node name="Button" type="Button" parent="VBoxContainer/join_dialog"]
+[node name="join" type="Button" parent="VBoxContainer/join_dialog"]
 margin_top = 56.0
 margin_right = 183.0
 margin_bottom = 76.0
@@ -78,3 +80,5 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="VBoxContainer/join_dialog/join" to="." method="_join_room"]
+[connection signal="pressed" from="VBoxContainer/search_room" to="." method="_search_rooms"]

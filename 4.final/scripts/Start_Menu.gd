@@ -10,3 +10,10 @@ func _show_join_dialog():
 
 func _create_room():
 	NetworkGlobal.create_lobby();
+
+func _search_rooms():
+	SceneSwitcher.change_scene_instant("res://Lobby_Search.tscn");
+
+
+func _join_room():
+	NetworkGlobal

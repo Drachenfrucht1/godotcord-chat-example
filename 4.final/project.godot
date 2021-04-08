@@ -23,6 +23,7 @@ config/icon="res://icon.png"
 
 DiscordGlobal="*res://scripts/Discord_Global.gd"
 NetworkGlobal="*res://scripts/Network_Global.gd"
+SceneSwitcher="*res://scripts/Scene_Switcher.gd"
 
 [display]
 
