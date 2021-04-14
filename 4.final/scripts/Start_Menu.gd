@@ -16,4 +16,5 @@ func _search_rooms():
 
 
 func _join_room():
-	NetworkGlobal
+	NetworkGlobal.connect_to_lobby($VBoxContainer/join_dialog/lobby_id.text,
+		$VBoxContainer/join_dialog/lobby_secret.text);
