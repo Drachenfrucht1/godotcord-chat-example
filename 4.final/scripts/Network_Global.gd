@@ -21,7 +21,7 @@ func connect_to_lobby(lobby_id, lobby_secret):
 	if active:
 		return;
 	var peer = NetworkedMultiplayerGodotcord.new();
-	peer.join_lobby(lobby_id, lobby_secret);
+	peer.join_lobby(int(lobby_id), lobby_secret);
 	_init_peer(peer);
 
 func _activity_join(activity_secret):
@@ -68,6 +68,13 @@ func _add_user(user):
 	users[peer_id] = user;
 	
 	emit_signal("new_user", user["name"]);
+	
+func close_connection():
+	active = false;
+	get_tree().network_peer.close_connection();
+	DiscordGlobal.reset_activity();
+	get_tree().network_peer = null;
+	
 
 remotesync func send_message(msg):
 	var author;

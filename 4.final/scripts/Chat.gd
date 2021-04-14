@@ -18,5 +18,5 @@ func _send():
 
 
 func _on_back_pressed():
-	#TODO disconnect
+	NetworkGlobal.close_connection();
 	SceneSwitcher.change_scene_instant("res://Start_Menu.tscn");
