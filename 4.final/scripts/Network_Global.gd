@@ -44,6 +44,9 @@ func _update_activity():
 	var activity = GodotcordActivity.new();
 	activity.state = "Chatting";
 	activity.join_secret = get_tree().network_peer.get_lobby_activity_secret();
+	activity.party_current = get_tree().network_peer.get_current_members();
+	activity.party_max = get_tree().network_peer.get_max_members();
+	activity.party_id = str(get_tree().network_peer.get_lobby_id());
 	activity.start = OS.get_unix_time();
 	
 	GodotcordActivityManager.set_activity(activity);
